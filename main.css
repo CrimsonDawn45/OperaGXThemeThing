@@ -1,0 +1,183 @@
+* {
+    margin:0;
+    padding:0;
+}
+
+*:focus {
+    outline: none;
+}
+
+
+:root {
+    --content-background: #363636;
+    --content-ui: #070707;
+    --title-color: white;
+    --title-font: 'Chakra Petch';
+    --title-font-size: 18px;
+    --title-font-weight: 600;
+    --content-color: #7D7D7D;
+    --content-font: 'K2D';
+    --content-font-size: 16px;
+    --corner-clip: 5px;
+    --accent-color: red;
+    --accent-color-highlight: pink;
+    --border-thickness: 2px;
+    --content-offset: 15px;
+    --button-font-size: 17px;
+    --button-font-color: black;
+}
+
+.card {
+    max-width: 500px;
+    width: fit-content;
+    height: fit-content;
+    overflow: hidden;
+    clip-path: polygon(
+      0px var(--corner-clip),     /* top left */
+      var(--corner-clip) 0px,     /* top left */
+      100% 0%,    /* top right */
+      100% 0%,   /* top right */
+      100% calc(100% - var(--corner-clip)),  /* bottom right */
+      calc(100% - var(--corner-clip)) 100%,  /* bottom right */
+      0% 100%,   /* bottom left */
+      0 100%      /* bottom left */
+    );
+   margin: 7px;
+}
+
+.card p {
+    text-align: justify;
+}
+
+.card .card-title {
+    position: relative;
+    font-size: var(--title-font-size);
+    font-family: var(--title-font);
+    text-transform: capitalize;
+    text-align: center;
+    background-color: var(--content-ui);
+    max-width: 65%;
+    width: fit-content;
+    padding-left: 7px;
+    padding-right: 7px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--title-color);
+    border-bottom-width: var(--border-thickness);
+}
+
+.card .card-content {
+    position: relative;
+    width: 100%;
+    font-family: var(--content-font);
+    font-size: var(--content-font-size);
+    background-color: var(--content-background);
+    padding-top: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 7px;
+    color: var(--content-color);
+    inline-size: auto;
+    overflow-wrap: normal;
+    border-top-style: solid;
+    border-color: var(--accent-color);
+    border-width: var(--border-thickness);
+    
+}
+
+hr {
+    margin: 5px;
+    border-color: var(--content-ui);
+}
+
+.card .card-offset {
+    left: var(--content-offset);
+    padding-right: calc(10px + var(--content-offset));
+}
+
+button {
+    display: inline;
+    background-color: var(--accent-color);
+    font-family: var(--title-font);
+    font-size: var(--button-font-size);
+    color: var(--button-font-color);
+    border: none;
+    border-bottom-style: solid;
+    border-bottom-width: var(--border-thickness);
+    border-bottom-color: var(--content-ui);
+    padding: 0px 15px 2px 15px;
+    clip-path: polygon(
+      0px var(--corner-clip),     /* top left */
+      var(--corner-clip) 0px,     /* top left */
+      100% 0%,    /* top right */
+      100% 0%,   /* top right */
+      100% calc(100% - var(--corner-clip)),  /* bottom right */
+      calc(100% - var(--corner-clip)) 100%,  /* bottom right */
+      0% 100%,   /* bottom left */
+      0 100%      /* bottom left */
+    );
+    margin: 5px;
+}
+
+button:hover {
+    animation-name: button;
+    animation-duration: 90ms;
+    animation-fill-mode: forwards;
+}
+
+button:disabled {
+    color: #595959;
+    border-bottom-color: #595959;
+    background-color: var(--content-color);
+}
+
+button:hover:disabled {
+    animation-name: none;
+}
+
+@keyframes button {
+    0% {
+       color: var(--accent-color);
+        background-color: var(--accent-color-highlight);
+        transform: scale(1.1);
+    }
+    100% {
+        color: var(--accent-color);
+        background-color: var(--accent-color-highlight);
+    }
+}
+
+input {
+    border: none;
+    border-radius: 0px;
+    border-bottom-style: solid;
+    border-bottom-width: var(--border-thickness);
+    margin: 5px;
+    height: 24px;
+    background-color: var(--content-color);
+    clip-path: polygon(
+      0px var(--corner-clip),     /* top left */
+      var(--corner-clip) 0px,     /* top left */
+      100% 0%,    /* top right */
+      100% 0%,   /* top right */
+      100% calc(100% - var(--corner-clip)),  /* bottom right */
+      calc(100% - var(--corner-clip)) 100%,  /* bottom right */
+      0% 100%,   /* bottom left */
+      0 100%      /* bottom left */
+    );
+    padding-left: 10px;
+}
+
+input:hover {
+    background-color: var(--title-color);
+}
+
+::placeholder {
+    color: var(--accent-color);
+    font-family: var(--content-font);
+}
+
+::placeholder:hover {
+    color: var(--accent-color-highlight)
+}
